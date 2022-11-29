@@ -1,0 +1,6 @@
+<form (ngSubmit)="submit()">
+    <p>Message:</p>
+    <input name="message" type="text" [(ngModel)]="message">
+    <button type="submit">Send</button>
+</form> 
+<p>{{ message }}</p>
