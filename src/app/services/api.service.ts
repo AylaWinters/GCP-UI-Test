@@ -6,14 +6,18 @@ import { Message } from 'src/models/Message';
   providedIn: 'root'
 })
 export class ApiService {
+  
+  
+  baseUrl:string = "https://divr-fx-test-zt2hbaea4q-uc.a.run.app";
 
-  baseUrl:string = "http://localhost:8080/";
   private headers = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 
   constructor(private http:HttpClient) { }
 
   public submitText(text:Message){
-    return this.http.post(`${this.baseUrl}post`, text);
+    console.log(`${this.baseUrl}/postData`);
+    
+    return this.http.post(`${this.baseUrl}/postData`, text);
   }
 
 }

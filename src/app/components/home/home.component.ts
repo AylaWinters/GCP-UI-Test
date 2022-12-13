@@ -10,10 +10,13 @@ import { Message } from 'src/models/Message';
 export class HomeComponent implements OnInit {
 
   message:string = "";
+  response:string = "";
 
   constructor(private api:ApiService) { }
 
   ngOnInit(): void {
+    console.log("direct to fx");
+    
   }
 
   submit(){
@@ -21,7 +24,11 @@ export class HomeComponent implements OnInit {
     const json:Message = {
       text: this.message
     }  
-    this.api.submitText(json).subscribe(res => console.log(res));
+    this.api.submitText(json).subscribe(res => {
+      console.log(res);
+      this.response = res.toString();
+      console.log(this.response);
+    });
   }
 
 }
